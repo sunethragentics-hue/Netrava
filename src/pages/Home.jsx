@@ -319,7 +319,7 @@ export default function Home({ setActivePage }) {
         <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '24px' }}>
           <div>
             <h3 style={{ fontSize: '1.5rem', marginBottom: '6px' }}>Need Assistance or Bulk Library Orders?</h3>
-            <p style={{ color: 'var(--text-secondary)' }}>Connect directly with our Delhi headquarters for proforma invoices and academic discounts.</p>
+            <p style={{ color: 'var(--text-secondary)' }}>Connect directly with our Bengaluru headquarters for proforma invoices and academic discounts.</p>
           </div>
           <div style={{ display: 'flex', gap: '14px', flexWrap: 'wrap' }}>
             <a href={`tel:${SITE_CONFIG.phone}`} className="btn btn-navy">📞 Call: {SITE_CONFIG.phone}</a>

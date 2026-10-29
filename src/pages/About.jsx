@@ -32,7 +32,7 @@ export default function About({ setActivePage }) {
               Established with the conviction that academic progress relies on rigorous, peer-reviewed scholarship, <strong>{SITE_CONFIG.name}</strong> serves as a trusted intellectual conduit between esteemed researchers, university professors, legal scholars, and university students.
             </p>
             <p style={{ color: 'var(--text-secondary)', marginBottom: '24px', fontSize: '1.05rem' }}>
-              Headquartered in Delhi with distribution partners across all major educational hubs in India, we have published authoritative works spanning constitutional law, judicial digests, positive psychology, research methodologies, and higher education governance.
+              Headquartered in Koramangala, Bengaluru with distribution partners across all major educational hubs in India, we have published authoritative works spanning constitutional law, judicial digests, positive psychology, research methodologies, and higher education governance.
             </p>
 
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px', marginTop: '30px' }}>

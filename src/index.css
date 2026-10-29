@@ -1197,6 +1197,128 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ==========================================================================
+   Upcoming & Status Filter Styles
+   ========================================================================== */
+.status-filter-wrapper {
+  margin-bottom: 24px;
+}
+
+.status-filter-nav {
+  display: inline-flex;
+  background: #f1f5f9;
+  padding: 4px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-light);
+  gap: 4px;
+  max-width: 100%;
+  flex-wrap: wrap;
+}
+
+.status-filter-btn {
+  border: none;
+  background: transparent;
+  padding: 8px 18px;
+  border-radius: var(--radius-full);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all var(--transition-fast);
+}
+
+.status-filter-btn:hover {
+  color: var(--primary-navy);
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.status-filter-btn.active {
+  background: #FFFFFF;
+  color: var(--primary-navy);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  font-weight: 700;
+}
+
+.status-pill-count {
+  font-size: 0.75rem;
+  padding: 2px 8px;
+  border-radius: 12px;
+  background: #e2e8f0;
+  color: var(--text-secondary);
+  font-weight: 700;
+}
+
+.status-filter-btn.active .status-pill-count {
+  background: rgba(11, 37, 69, 0.08);
+  color: var(--primary-navy);
+}
+
+.status-pill-upcoming {
+  background: #fef3c7 !important;
+  color: #b45309 !important;
+}
+
+.upcoming-hint-banner {
+  margin-top: 12px;
+  background: #fffbeb;
+  border-left: 3px solid #f59e0b;
+  padding: 8px 16px;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  font-size: 0.85rem;
+  color: #92400e;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+}
+
+.book-card-upcoming {
+  border-color: rgba(245, 158, 11, 0.35);
+}
+
+.book-card-upcoming:hover {
+  border-color: #f59e0b;
+  box-shadow: 0 8px 24px rgba(245, 158, 11, 0.15);
+}
+
+.book-badge-upcoming {
+  background: linear-gradient(135deg, #d97706 0%, #b45309 100%) !important;
+  color: #FFFFFF !important;
+}
+
+.book-upcoming-indicator {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #d97706;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.btn-book-preorder {
+  background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+  color: #FFFFFF;
+  font-size: 0.82rem;
+  padding: 8px 10px;
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  transition: all var(--transition-fast);
+  text-decoration: none;
+  border: none;
+}
+
+.btn-book-preorder:hover {
+  background: linear-gradient(135deg, #b45309 0%, #92400e 100%);
+  color: #FFFFFF;
+  transform: translateY(-1px);
+}
+
+/* ==========================================================================
    Editorial Excellence & Publishing Flow
    ========================================================================== */
 .workflow-section {
