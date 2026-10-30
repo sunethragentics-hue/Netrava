@@ -4,8 +4,9 @@ export const SITE_CONFIG = {
   tagline: "Knowledge • Research • Innovation",
   phone: "+91 8240981218",
   phoneRaw: "918240981218",
-  email: "netravapublications@gmail.com",
-  address: "Sri Rama Temple Road,pin-560047 Koramangala, Bengaluru, Karnataka, India",
+  email: "netravapublication@gmail.com",
+  // address: "Sri Rama Temple Road,pin-560047 Koramangala, Bengaluru, Karnataka, India",
+  address: "12C, M C Lane, Kolkata -700046 Area: Parcircus, kolkata",
   workingHours: "Mon - Sat: 9:30 AM - 6:30 PM",
   whatsappBase: "https://wa.me/918240981218",
   bookOrderForm: "https://forms.gle/tFu77RJ6N88t9ijY8",
@@ -68,7 +69,7 @@ export const EDITORIAL_MEMBERS = [
     name: "Dinesh Samal",
     role: "Technical Team/Marketing",
     specialization: "Software Engineer",
-    image: "/assets/team_images/Dinesh.png",
+    image: "/assets/team_images/dinesh.jpeg",
     // bio: "Pioneering researcher in NEP 2020 curricular implementation and instructional design methodologies."
   }
 ];

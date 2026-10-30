@@ -51,9 +51,9 @@ export default function App() {
       {/* Main Page Content */}
       <main>
         {activePage === 'home' && (
-          <Home 
-            setActivePage={handlePageChange} 
-            onOpenBookModal={setSelectedBook} 
+          <Home
+            setActivePage={handlePageChange}
+            onOpenBookModal={setSelectedBook}
           />
         )}
         {activePage === 'about' && (
@@ -77,9 +77,9 @@ export default function App() {
       <FloatingActions />
 
       {/* Interactive Quick View Book Modal */}
-      <BookModal 
-        book={selectedBook} 
-        onClose={() => setSelectedBook(null)} 
+      <BookModal
+        book={selectedBook}
+        onClose={() => setSelectedBook(null)}
       />
 
       {/* Toast Notification */}
