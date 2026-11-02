@@ -65,55 +65,47 @@ export const PUBLICATIONS = [
   //     "Ethical frameworks for judicial AI assistance and autonomous contracts",
   //     "Advance reservations available for universities and research institutions"
   //   ]
-  // }
-
-  // --- [TEMPLATE: COPY FOR NEXT PUBLISHED BOOK] ---
-  // {
-  //   id: 3,
-  //   status: "published",
-  //   title: "Title Here",
-  //   subtitle: "Subtitle Here",
-  //   category: "law", // 'law' | 'psychology' | 'education' | 'research'
-  //   categoryName: "Law & Jurisprudence",
-  //   author: "Author Name",
-  //   isbn: "978-xx-xxxx-xx-x",
-  //   edition: "1st Edition (2026)",
-  //   pages: 350,
-  //   price: "₹650",
-  //   originalPrice: "₹800",
-  //   cover: "/assets/images/books/book_1.jpg",
-  //   featured: false,
-  //   badge: "New Release",
-  //   synopsis: "Brief description of the book.",
-  //   highlights: [
-  //     "Highlight 1",
-  //     "Highlight 2"
-  //   ]
   // },
 
-  // --- [TEMPLATE: COPY FOR NEXT UPCOMING BOOK] ---
-  // {
-  //   id: 4,
-  //   status: "upcoming",
-  //   expectedRelease: "Expected Dec 2026",
-  //   title: "Upcoming Title Here",
-  //   subtitle: "Subtitle Here",
-  //   category: "psychology", // 'law' | 'psychology' | 'education' | 'research'
-  //   categoryName: "Psychology & Behavioral Sciences",
-  //   author: "Author Name",
-  //   isbn: "In Registration",
-  //   edition: "1st Edition (Forthcoming)",
-  //   pages: 300,
-  //   price: "₹600",
-  //   originalPrice: "₹750",
-  //   cover: "/assets/images/books/book_1.jpg",
-  //   badge: "Upcoming",
-  //   synopsis: "Brief description of the upcoming work.",
-  //   highlights: [
-  //     "Highlight 1",
-  //     "Highlight 2"
-  //   ]
-  // }
+
+
+
+  // --- [SAMPLE 1: UPCOMING BOOK]-- -
+  {
+    id: 1,
+    status: "upcoming", // Sets the card to Upcoming mode with Pre-Order button
+    expectedRelease: "Expected 12 December 2026",
+    title: "CONTEMPORARY HORIZONS",
+    subtitle: "Multidisciplinary Perspectives on Research, Innovation and Emerging Trends",
+    category: "multidisciplinary",
+    categoryName: "Multidisciplinary",
+    // author: "Dr. Arvind Rao & Netrava Law Forum",
+    isbn: "978-81-181743-0-1",
+    edition: "1st Edition ",
+    pages: 360,
+    price: "From ₹500",
+    ebookPrice: "₹500",
+    physicalPrice: "₹1,500",
+    physicalCopies: "2 Copies",
+    pricing: [
+      { format: "E-Book", price: "₹500", note: "Instant Digital Access" },
+      { format: "Physical Copy (2 Copies)", price: "₹1,500", note: "2 Printed Copies" }
+    ],
+    chapterSubmissionUrl: "https://forms.gle/DpxQ3sdH5hRYnSzJA",
+    cover: "/assets/images/books/contemporary_horizons/front.png",
+    backCover: "/assets/images/books/contemporary_horizons/back.png",
+    featured: true,
+    badge: "Upcoming",
+    synopsis: "A pioneering academic treatise examining the intersection of generative AI, algorithmic bias, copyright liability, deepfakes, and emerging statutory frameworks under the Digital Personal Data Protection regime.",
+    highlights: [
+      "Comparative analysis of EU AI Act and Indian digital regulatory policies",
+      "Evidentiary admissibility of machine-generated forensics in criminal trials",
+      "Ethical frameworks for judicial AI assistance and autonomous contracts",
+      "Advance reservations available for universities and research institutions"
+    ]
+  }
+
+
 ];
 
 export default PUBLICATIONS;

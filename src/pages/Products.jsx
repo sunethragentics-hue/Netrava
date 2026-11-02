@@ -168,18 +168,33 @@ export default function Products({ onOpenBookModal }) {
               {filteredBooks.map((book, idx) => {
                 const isUpcoming = book.status === 'upcoming';
                 const preorderWhatsappUrl = `${SITE_CONFIG.whatsappBase}?text=${encodeURIComponent(
-                  `Hello Netrava Publications, I would like to pre-order / inquire about the upcoming book: "${book.title}" (Author: ${book.author || 'Editorial Bench'}).`
+                  `Hello Netrava Publications, I would like to pre-order / inquire about: "${book.title}" (ISBN: ${book.isbn || 'N/A'}${book.ebookPrice ? `, Options: E-Book ${book.ebookPrice} / Physical 2 Copies ${book.physicalPrice}` : ''}).`
                 )}`;
 
+                const hasBackCover = Boolean(book.backCover);
+
                 return (
-                  <div key={book.id || idx} className={`book-card ${isUpcoming ? 'book-card-upcoming' : ''}`}>
+                  <div key={book.id || idx} className={`book-card ${isUpcoming ? 'book-card-upcoming' : ''} ${hasBackCover ? 'has-back-cover' : ''}`}>
                     <div className="book-cover-wrap">
                       <img
                         src={book.cover || '/assets/images/books/book_1.jpg'}
-                        alt={book.title || 'Book Cover'}
-                        className="book-cover-img"
+                        alt={`${book.title || 'Book Cover'} - Front`}
+                        className={`book-cover-img book-cover-front ${hasBackCover ? 'has-flipper' : ''}`}
                         loading="lazy"
                       />
+                      {hasBackCover && (
+                        <img
+                          src={book.backCover}
+                          alt={`${book.title || 'Book Cover'} - Back`}
+                          className="book-cover-img book-cover-back"
+                          loading="lazy"
+                        />
+                      )}
+                      {hasBackCover && (
+                        <span className="book-flip-hint">
+                          Hover for back cover ↻
+                        </span>
+                      )}
                       {isUpcoming ? (
                         <span className="book-badge book-badge-upcoming">
                           {book.badge || 'Upcoming'}
@@ -193,23 +208,41 @@ export default function Products({ onOpenBookModal }) {
                         <span className="book-category-tag">{book.categoryName || 'Academic Publication'}</span>
                         {isUpcoming && (
                           <span className="book-upcoming-indicator">
-                            ● In Press
+                            ● Upcoming
                           </span>
                         )}
                       </div>
 
                       <h3 className="book-title" title={book.title || 'Untitled'}>{book.title || 'Untitled Publication'}</h3>
                       <p className="book-author">{book.author || 'Netrava Editorial Bench'}</p>
+                      {book.isbn && (
+                        <p style={{ fontSize: '0.78rem', color: 'var(--text-muted)', marginBottom: '8px', fontWeight: 500 }}>
+                          ISBN: <span style={{ color: 'var(--primary-navy)', fontWeight: 600 }}>{book.isbn}</span>
+                        </p>
+                      )}
 
-                      <div className="book-meta-row">
-                        <div className="book-price-wrap">
-                          <span className="book-current-price">{book.price || (isUpcoming ? 'Price TBA' : 'Price on Inquire')}</span>
-                          {book.originalPrice && <span className="book-old-price">{book.originalPrice}</span>}
+                      {book.ebookPrice && book.physicalPrice ? (
+                        <div className="book-multi-pricing">
+                          <div className="multi-price-item">
+                            <span className="price-tag-label">📱 E-Book:</span>
+                            <span className="price-tag-val">{book.ebookPrice}</span>
+                          </div>
+                          <div className="multi-price-item">
+                            <span className="price-tag-label">📦 Physical (2 Copies):</span>
+                            <span className="price-tag-val">{book.physicalPrice}</span>
+                          </div>
                         </div>
-                        <span style={{ fontSize: '0.78rem', color: isUpcoming ? '#b45309' : 'var(--text-muted)', fontWeight: 600 }}>
-                          {isUpcoming ? (book.expectedRelease || 'Forthcoming') : (book.pages ? `${book.pages} Pages` : 'Treatise')}
-                        </span>
-                      </div>
+                      ) : (
+                        <div className="book-meta-row">
+                          <div className="book-price-wrap">
+                            <span className="book-current-price">{book.price || (isUpcoming ? 'Price TBA' : 'Price on Inquire')}</span>
+                            {book.originalPrice && <span className="book-old-price">{book.originalPrice}</span>}
+                          </div>
+                          <span style={{ fontSize: '0.78rem', color: isUpcoming ? '#b45309' : 'var(--text-muted)', fontWeight: 600 }}>
+                            {isUpcoming ? (book.expectedRelease || 'Forthcoming') : (book.pages ? `${book.pages} Pages` : 'Treatise')}
+                          </span>
+                        </div>
+                      )}
 
                       <div className="book-actions-row">
                         <button
@@ -253,6 +286,29 @@ export default function Products({ onOpenBookModal }) {
                           </a>
                         )}
                       </div>
+
+                      {/* Chapter Submission Action */}
+                      {(book.chapterSubmissionUrl || SITE_CONFIG.chapterSubmissionForm) && (
+                        <a
+                          href={book.chapterSubmissionUrl || SITE_CONFIG.chapterSubmissionForm}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="btn-book-chapter"
+                          title="Submit Chapter for this Book (Opens Google Form)"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            window.open(book.chapterSubmissionUrl || SITE_CONFIG.chapterSubmissionForm, '_blank', 'noopener,noreferrer');
+                          }}
+                        >
+                          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <line x1="16" y1="13" x2="8" y2="13"></line>
+                            <line x1="16" y1="17" x2="8" y2="17"></line>
+                          </svg>
+                          Submit Chapter ↗
+                        </a>
+                      )}
                     </div>
                   </div>
                 );
