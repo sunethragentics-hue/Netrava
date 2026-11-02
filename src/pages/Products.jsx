@@ -167,10 +167,7 @@ export default function Products({ onOpenBookModal }) {
             <div className="books-grid">
               {filteredBooks.map((book, idx) => {
                 const isUpcoming = book.status === 'upcoming';
-                const preorderWhatsappUrl = `${SITE_CONFIG.whatsappBase}?text=${encodeURIComponent(
-                  `Hello Netrava Publications, I would like to pre-order / inquire about: "${book.title}" (ISBN: ${book.isbn || 'N/A'}${book.ebookPrice ? `, Options: E-Book ${book.ebookPrice} / Physical 2 Copies ${book.physicalPrice}` : ''}).`
-                )}`;
-
+                const bookOrderUrl = book.orderFormUrl || SITE_CONFIG.bookOrderForm || 'https://forms.gle/tFu77RJ6N88t9ijY8';
                 const hasBackCover = Boolean(book.backCover);
 
                 return (
@@ -254,11 +251,15 @@ export default function Products({ onOpenBookModal }) {
                         </button>
                         {isUpcoming ? (
                           <a
-                            href={preorderWhatsappUrl}
+                            href={bookOrderUrl}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="btn-book-preorder"
-                            title="Pre-Order / Inquire on WhatsApp"
+                            title="Pre-Order Book (Opens Order Form)"
+                            onClick={(e) => {
+                              e.preventDefault();
+                              window.open(bookOrderUrl, '_blank', 'noopener,noreferrer');
+                            }}
                           >
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                               <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>

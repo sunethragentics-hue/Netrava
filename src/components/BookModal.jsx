@@ -35,11 +35,8 @@ export default function BookModal({ book, onClose }) {
   const isUpcoming = book.status === 'upcoming';
   const hasBackCover = Boolean(book.backCover);
   const currentImgUrl = activeSide === 'back' && hasBackCover ? book.backCover : (book.cover || '/assets/images/books/book_1.jpg');
-  const orderFormUrl = SITE_CONFIG.bookOrderForm || 'https://forms.gle/tFu77RJ6N88t9ijY8';
+  const orderFormUrl = book.orderFormUrl || SITE_CONFIG.bookOrderForm || 'https://forms.gle/tFu77RJ6N88t9ijY8';
   const chapterSubmissionUrl = book.chapterSubmissionUrl || SITE_CONFIG.chapterSubmissionForm || 'https://forms.gle/DpxQ3sdH5hRYnSzJA';
-  const preorderWhatsappUrl = `${SITE_CONFIG.whatsappBase}?text=${encodeURIComponent(
-    `Hello Netrava Publications, I would like to pre-order / reserve a copy of "${book.title}" (ISBN: ${book.isbn || 'N/A'}${book.ebookPrice ? `, Pricing: E-Book ${book.ebookPrice} / Physical (2 Copies) ${book.physicalPrice}` : ''}).`
-  )}`;
 
   return (
     <div 
@@ -318,14 +315,18 @@ export default function BookModal({ book, onClose }) {
             </a>
             {isUpcoming ? (
               <a 
-                href={preorderWhatsappUrl} 
+                href={orderFormUrl} 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="btn btn-sm"
                 style={{ background: 'linear-gradient(135deg, #d97706 0%, #b45309 100%)', color: '#FFFFFF', border: 'none', fontWeight: 700, display: 'inline-flex', alignItems: 'center', gap: '6px' }}
-                title="Reserve advance copy on WhatsApp"
+                title="Open Pre-Order Form in New Tab"
+                onClick={(e) => {
+                  e.preventDefault();
+                  window.open(orderFormUrl, '_blank', 'noopener,noreferrer');
+                }}
               >
-                🚀 Pre-Order / Inquire on WhatsApp ↗
+                📋 Pre-Order (Order Form) ↗
               </a>
             ) : (
               <a 
