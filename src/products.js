@@ -74,7 +74,7 @@ export const PUBLICATIONS = [
   {
     id: 1,
     status: "upcoming", // Sets the card to Upcoming mode with Pre-Order button
-    expectedRelease: "Expected 12 December 2026",
+    expectedRelease: "Expected 31 December 2026",
     title: "CONTEMPORARY HORIZONS",
     subtitle: "Multidisciplinary Perspectives on Research, Innovation and Emerging Trends",
     category: "multidisciplinary",
